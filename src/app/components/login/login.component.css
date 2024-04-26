@@ -1,0 +1,28 @@
+.login{
+    width: 400px;
+}
+.logo{
+    width: 150px;
+    text-align: center;
+    border-radius: 50%;
+}
+.heading{
+    text-align: end;
+    color: rgb(32, 32, 82);
+    background-color: rgb(85, 201, 185);
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  

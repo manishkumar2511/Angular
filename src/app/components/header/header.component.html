@@ -1,0 +1,50 @@
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-12 ">
+      <mat-toolbar color="primary" class="topbar py-5">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center ">
+              <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                (click)="goToHome()">
+                <mat-icon>home</mat-icon>
+              </button>
+              <span>Student Management Portal</span>
+              <span class="example-spacer"></span>
+              <button mat-icon-button class="example-icon favorite-icon"
+                aria-label="Example icon-button with heart icon">
+                <mat-icon>bell</mat-icon>
+              </button>
+
+              <div>
+                <button *ngIf="showLogoutButton" mat-raised-button color="primary"(click)="Admission()">Admission</button>
+                <button *ngIf="showLogoutButton" mat-raised-button color="primary"(click)="studentDesk()">Student-desk</button>
+                <button *ngIf="showLogoutButton" mat-raised-button color="primary" (click)="courses()">Courses</button>
+                <button *ngIf="showLogoutButton" mat-raised-button color="primary" (click)="result()">Result</button>
+                <button *ngIf="showLogoutButton" mat-raised-button color="primary" (click)="gallery()">Gallery</button>
+                <button *ngIf="showLogoutButton" mat-raised-button color="primary" (click)="contact()">Contact</button>
+              </div>
+              <button *ngIf="showLogoutButton" mat-icon-button (click)="logOut()">
+                <mat-icon>exit_to_app</mat-icon>
+              </button>
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center">
+              <p *ngIf="showWelcome" class="me-3">Welcome {{LoggedInUser}}</p>
+
+            </div>
+          </div>
+        </div>
+
+      </mat-toolbar>
+      <div>
+      </div>
+
+      <div *ngIf="loaderService.isloading | async">
+        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+      </div>
+      <div *ngIf="loaderService.isloading | async" class="loader-container">
+        <mat-spinner style="top: 50%; left: 50%;" color="accent"></mat-spinner>
+      </div>
+    </div>
+  </div>
+</div>

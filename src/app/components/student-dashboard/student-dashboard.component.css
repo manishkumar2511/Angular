@@ -1,0 +1,36 @@
+.WelcomeText{
+    text-align: center;
+    text-shadow: 1px 1px;
+    color: rgb(105, 36, 4);
+    background-color: azure;
+ 
+  }
+  h3{
+    font-size: x-large;
+  }
+  .mat-card{
+    margin-top: 10px;
+    background-color: rgb(247, 251, 252);
+    margin-top: 50px;
+    z-index: 999;
+  }
+  table {
+    width: 100%;
+  }
+.NoData{
+ padding: 20px;
+ color: red;
+ text-align: center;
+ margin-right: 50%;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c3736059725-0.mdc-text-field--filled.mdc-text-field--no-label {
+  background: #fff !important;
+}
+
+.example-form-field{
+  z-index: -4;
+  margin-top: 60px;
+
+}
+

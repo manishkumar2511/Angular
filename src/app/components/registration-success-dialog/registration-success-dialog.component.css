@@ -1,0 +1,18 @@
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%;
+    background-color: #4CAF50;
+    margin: 0 auto; 
+}
+
+.mat-icon {
+    color: white; 
+    font-size: 15px;
+}
+.bgcolor{
+    background-color: rgb(38, 196, 188);
+}

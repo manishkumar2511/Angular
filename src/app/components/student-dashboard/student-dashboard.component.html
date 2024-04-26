@@ -1,0 +1,95 @@
+<div class="row gx-0">
+  <div class=" WelcomeText position-fixed d-flex">
+    <mat-card class="mat-card w-100 ">
+      <mat-card-content>
+          <div class="d-flex justify-content-between " style="margin-top: 50px;">
+            <img src="https://cdn-icons-png.flaticon.com/128/670/670801.png" style="border-radius: 50%; width: 60px;" alt="icon">
+            <h3> Student Dashboard</h3>
+            <button mat-raised-button color="primary" class=""
+              (click)="OpenAddStudentForm()"> +student</button>
+          </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="table" style="margin-top: 117px;">
+   
+      <mat-form-field class="example-form-field  w-100 mat-form-field-no-padding ">
+        <input matInput (keyup)="applyFilter($event)" placeholder="search student here">
+      </mat-form-field>
+    <table mat-table [dataSource]="StudentList" class="mat-elevation" matSort>
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> LastName </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sEmail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.sEmail}} </td>
+      </ng-container>
+      <ng-container matColumnDef="sMobile">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.sMobile}} </td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DOB </th>
+        <td mat-cell *matCellDef="let element"> {{element.dob |date:'MMMM d, y'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="course">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Course </th>
+        <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+      </ng-container>
+      <ng-container matColumnDef="admissionDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> AdmissionDate </th>
+        <td mat-cell *matCellDef="let element"> {{element.admissionDate|date:'MMMM d, y , h:mm:ss a'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="btn btn-primary" color="primary" (click)="EditStudent(element.id)">Edit</button>
+          <button class="btn btn-danger" color="warn" (click)="DeleteStudent(element.id)">Delete</button>
+        </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="EditStudent(element.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="DeleteStudent(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell  NoData" colspan="10"> Oops! No Record Found{{sticker}}</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

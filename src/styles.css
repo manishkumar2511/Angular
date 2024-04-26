@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field-no-padding .mat-form-field-wrapper {
+    padding: 0px !important;
+   }
+
+   .top-margin{
+    background-color: rgb(250, 250, 250);
+    margin-top: 45px;
+   }

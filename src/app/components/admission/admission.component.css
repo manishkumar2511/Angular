@@ -1,0 +1,40 @@
+.WelcomeText{
+    text-align: center;
+    text-shadow: 1px 1px;
+    color: darkcyan;
+    background-color: rgb(255, 255, 255);
+  }
+  h3{
+    font-size: x-large;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px; 
+  }
+  
+  .course-card {
+    width: 100%; 
+  }
+  .course-image{
+    width: 50%;
+  }
+
+  .notification-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.mat-drawer-container.drawer-opened {
+    transform: translateX(0);
+}
+.addmission{
+  position: fixed;
+
+  z-index: 999;
+  width: 100%;
+}

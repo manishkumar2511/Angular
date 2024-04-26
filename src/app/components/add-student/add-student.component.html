@@ -1,0 +1,109 @@
+<div class="container">
+    <form [formGroup]="studentForm" (ngSubmit)="AddStudent()" class="gx-0">
+    <div class="row overflow-hidden">
+        <div class="col-12 text-center">
+            <h3 class="heading">New Student Form</h3>
+        </div>
+        <div>
+            <img mat-card-image class="logo mx-auto d-block"
+                src="https://img.freepik.com/premium-vector/graduating-boy-with-cap_388558-1651.jpg?w=740"
+                alt="Photo of login logo">
+        </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" placeholder="Enter first name">
+                    <mat-error *ngIf="studentForm.get('firstName')?.invalid && studentForm.get('firstName')?.touched">
+                        First name is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" placeholder="Enter last name">
+                    <mat-error *ngIf="studentForm.get('lastName')?.invalid && studentForm.get('lastName')?.touched">
+                        Last name is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="sEmail" placeholder="Enter email">
+                    <mat-error *ngIf="studentForm.get('sEmail')?.invalid && studentForm.get('sEmail')?.touched">
+                        Please enter a valid email
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Course</mat-label>
+                    <input matInput formControlName="course" placeholder="Enter course">
+                    <mat-error *ngIf="studentForm.get('course')?.invalid && studentForm.get('course')?.touched">
+                        Course is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="DOB" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="studentForm.get('DOB')?.invalid && studentForm.get('DOB')?.touched">
+                        Date of Birth is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Mobile</mat-label>
+                    <input matInput formControlName="sMobile" placeholder="Enter mobile">
+                    <mat-error *ngIf="studentForm.get('sMobile')?.invalid && studentForm.get('sMobile')?.touched">
+                        <span *ngIf="studentForm.get('sMobile')?.errors?.required">Mobile is required</span>
+                        <span
+                            *ngIf="studentForm.get('sMobile')?.errors?.pattern || studentForm.get('sMobile')?.errors?.invalidMobile">
+                            Please enter a valid 10-digit mobile number
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-radio-group formControlName="gender">
+                    <mat-label>Gender</mat-label>
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Select State</mat-label>
+                    <mat-select formControlName="state">
+                        <mat-option *ngFor="let state of StatesList" [value]="state">{{state}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="studentForm.get('state')?.invalid && studentForm.get('state')?.touched">
+                        State is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput formControlName="address" placeholder="Enter address"></textarea>
+                    <mat-error *ngIf="studentForm.get('address')?.invalid && studentForm.get('address')?.touched">
+                        Address is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-checkbox formControlName="isRegular">Regular Student</mat-checkbox>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button mat-raised-button color="primary" type="submit">Add New</button>
+            </div>
+            
+        </div>
+    </form>
+</div>

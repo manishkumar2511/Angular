@@ -1,0 +1,27 @@
+.logo {
+    width: 100px;
+    text-align: center;
+    border-radius: 50%;
+  }
+  
+  
+  .mat-form-field {
+    margin-right: 12px;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+  .red-toast {
+    background-color: red !important;
+  }
+  
+  .loader-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 999;
+  }

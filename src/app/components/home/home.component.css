@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .WelcomeText{
+    text-align: center;
+    text-shadow: 1px 1px;
+    color: darkcyan;
+    background-color: azure;
+    margin-top: 60px;
+  }
+  h3{
+    font-size: x-large;
+  }

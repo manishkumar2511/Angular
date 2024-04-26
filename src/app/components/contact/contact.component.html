@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center mt-5">
+      <div class="col-3">
+        <mat-card class="top-margin">
+          <div class="bgcolor mt-3">
+            <h3 class="title">Contact us</h3>
+          </div>
+          <mat-card-content class="mt-4">
+            <form [formGroup]="ContactUsData" (ngSubmit)="contact()">
+              <mat-form-field class="w-100">
+                <input matInput placeholder="Name" formControlName="Name">
+                <mat-error *ngIf="ContactUsData.get('Name')?.hasError('required')">Name is required</mat-error>
+              </mat-form-field>
+              <mat-form-field class="w-100">
+                <input matInput type="email" placeholder="Email" formControlName="Email">
+                <mat-error *ngIf="ContactUsData.get('Email')?.hasError('required')">Email is required</mat-error>
+                <mat-error *ngIf="ContactUsData.get('Email')?.hasError('email')">Invalid email format</mat-error>
+              </mat-form-field>
+              <mat-form-field class="w-100">
+                <input matInput type="tel" placeholder="Phone" formControlName="Phone">
+                <mat-error *ngIf="ContactUsData.get('Phone')?.hasError('required')">Phone Number is required</mat-error>
+              </mat-form-field>
+              <div class="text-center">
+                <button mat-raised-button color="warn" [disabled]="!ContactUsData.valid">Submit</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

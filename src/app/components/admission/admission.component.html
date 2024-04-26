@@ -1,0 +1,54 @@
+<div class="container-fluid p-0">
+  <div class="row addmission" style="margin-top: 96px;">
+    <mat-card>
+      <mat-card-content class="header">
+        <div class="d-flex justify-content-between align-items-center WelcomeText ">
+          <img src="https://cdn-icons-png.flaticon.com/128/670/670801.png" style="border-radius: 50%; width: 60px;"
+            alt="icon">
+          <h3>Admissions</h3>
+          <button mat-raised-button color="primary" (click)="toggleNotificationPanel()"
+          matBadge="8" matBadgePosition="after" matBadgeColor="accent">
+          Notifications
+      </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="row subject g-0" class="margin-top">
+    <div class="grid-container">
+      <ng-container *ngFor="let course of courses">
+        <mat-card class="course-card">
+          <mat-card-header>
+            <div mat-card-avatar class="course-image">
+              <img [src]="course.image" style="border-radius: 50%; width: 70px;" alt="Course Image">
+            </div>
+            <mat-card-title>{{ course.courseName }}</mat-card-title>
+            <mat-card-subtitle>Fees: {{ course.fees }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="d-flex  justify-content-between ">
+            Duration: {{ course.duration }}
+            <button mat-raised-button color="primary">Buy Now</button>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <mat-card style="width: 100%;">
+      <mat-card-content>
+        <h5 id="offcanvasRightLabel" style="color: red; font-size: larger ; font-weight: 400;">Notifications</h5>
+      </mat-card-content>
+    </mat-card>
+    
+    <button type="button" class="btn-close text-reset" (click)="hidetoggleNotificationPanel()" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ...
+  </div>
+</div>

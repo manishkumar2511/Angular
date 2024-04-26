@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <div *ngIf="_loderService.isloading | async" class="loader-container">
+    <mat-spinner style="top: 50%; left: 50%;" color="accent"></mat-spinner>
+  </div>
+  <form class="example-form" [formGroup]="RegistrationData" (ngSubmit)="Register()">
+    <h2 mat-dialog-title class="text-center">Registration Page</h2>
+    <mat-dialog-content class=" overflow-hidden">
+      <div class="row">
+        <div>
+          <img mat-card-image class="logo mx-auto d-block"
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/registration-1876333-1587185.png?f=webp&w=256"
+            alt="Photo of a Shiba Inu">
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput type="text" placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="RegistrationData.get('firstName')?.hasError('required')">First Name is
+              required</mat-error>
+            <mat-error *ngIf="RegistrationData.get('firstName')?.hasError('invalidName')">First Name should contain
+              only alphabets and spaces</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput type="text" placeholder="Last Name" formControlName="lastName">
+            <mat-error *ngIf="RegistrationData.get('lastName')?.hasError('required')">Last Name is
+              required</mat-error>
+            <mat-error *ngIf="RegistrationData.get('lastName')?.hasError('invalidName')">Last Name should contain
+              only alphabets and spaces</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput type="email" placeholder="Email" formControlName="email">
+            <mat-error *ngIf="RegistrationData.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="RegistrationData.get('email')?.hasError('email')">Please enter a valid email
+              address</mat-error>
+          </mat-form-field>
+          <div *ngIf="emailExistsError" class="error-message">
+            Email already exists
+          </div>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput type="tel" placeholder="Mobile Number" formControlName="mobileNumber">
+            <mat-error *ngIf="RegistrationData.get('mobileNumber')?.hasError('required')">Mobile Number is
+              required</mat-error>
+            <mat-error *ngIf="RegistrationData.get('mobileNumber')?.hasError('pattern')">Please enter a valid
+              10-digit mobile number</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="RegistrationData.get('password').errors?.required">Password is required</mat-error>
+            <mat-error *ngIf="RegistrationData.get('password').hasError('pattern')">Password should be at least 8 characters long and should contain one number, one character, and one special character</mat-error>
+            <mat-error *ngIf="RegistrationData.get('password').errors?.minlength">Password must be at least 8 characters long</mat-error>
+          </mat-form-field>
+        </div>
+        
+        <div class="col-6">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+            <mat-error *ngIf="RegistrationData.get('confirmPassword').errors?.required">Confirm Password is
+              required</mat-error>
+            <mat-error *ngIf="RegistrationData.get('confirmPassword').errors?.confirmPasswordMismatch">Passwords do
+              not match</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12 text-center">
+          <button mat-raised-button color="primary" class="btn btn-primary">Register</button>
+        </div>
+      </div>
+    </mat-dialog-content>
+  </form>
+</div>
