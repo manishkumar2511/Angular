@@ -7,7 +7,6 @@ import { TokenExpiredDialogComponent } from '../token-expired-dialog/token-expir
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.component';
 import {MatChipsModule} from '@angular/material/chips';
-import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
